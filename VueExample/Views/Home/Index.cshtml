@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            @*<li v-for="food in foodList">{{food}}</li>*@
+            @*<li v-for="food in foodList">{{food.name}}：¥{{food.price}}</li>*@
+            @*<li v-for="food in foodList">{{food.name}}：¥{{food.price*food.discount}}</li>*@
+            <li v-for="food in foodList">{{food.name}}：¥{{food.discount?food.price*food.discount:food.price}}</li>
+        </ul>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                //foodList: ['葱', '姜', '蒜']
+                foodList: [
+                    {
+                        name: '葱',
+                        price: 10,
+                        discount: 0.8
+                    },
+                    {
+                        name: '姜',
+                        price: 5,
+                        discount: 0.8
+                    },
+                    {
+                        name: '蒜',
+                        price: 4.5
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

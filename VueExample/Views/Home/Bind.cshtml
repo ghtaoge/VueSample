@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bind</title>
+    <style>
+        .active {
+            background: #a10;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        @*<a v-bind:class="{active:isActive}" v-bind:href="url">*@
+        <a :class="{active:isActive}" :href="url">
+            点我
+            @*<img v-bind:src="img" />*@
+        </a>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                url: 'https://www.baidu.com',
+                img: '/Imgs/test.jpg',
+                klass: 'btn btn-default',
+                isActive: true
+            }
+        });
+    </script>
+</body>
+</html>

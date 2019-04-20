@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Component</title>
+</head>
+<body>
+    <div id="seg1">
+        <alert></alert>
+    </div>
+    <div id="seg2">
+        <alert></alert>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var msg = {
+            template: '<button @@click="on_click">弹弹弹</button>',
+            methods: {
+                on_click: function () {
+                    alert('弹个车');
+                }
+            }
+        };
+        //全局component
+        //Vue.component('alert', {//需要存活于vue的域中，所以需要将标签放置于vue对象el中
+        //    template: '<button @@click="on_click">弹弹弹</button>',
+        //    methods: {
+        //        on_click: function () {
+        //            alert('弹个车');
+        //        }
+        //    }
+        //});
+        new Vue({
+            el: '#seg1',
+            //局部component
+            components: {
+                alert: {
+                    template: '<button @@click="on_click">弹弹弹</button>',
+                    methods: {
+                        on_click: function () {
+                            alert('弹个车');
+                        }
+                    }
+                }
+            }
+        });
+        new Vue({
+            el: '#seg2',
+            components: {
+                alert: msg
+            }
+        });
+    </script>
+</body>
+</html>

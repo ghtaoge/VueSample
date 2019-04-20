@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Model</title>
+</head>
+<body>
+    <div id="app">
+        @*<input type="text" v-model="name" />*@
+        @*<input type="text" v-model.lazy="name" />*@
+        @*<input type="text" v-model.trim="name" />*@
+        @*<input type="text" v-model.number="price" />*@
+        @*<pre>{{name}}</pre>*@
+        <label>
+            男
+            @*<input v-model="sex" value="male" type="radio" />*@
+            <input v-model="sex" value="male" type="checkbox" />
+        </label>
+        <label>
+            女
+            @*<input v-model="sex" value="famale" type="radio" />*@
+            <input v-model="sex" value="famale" type="checkbox" />
+        </label>
+        <br />
+        {{sex}}
+        @*<textarea v-model="article"></textarea>*@
+
+        <div>你来自哪里</div>
+        <select v-model="from">
+            <option value="1">王家沟</option>
+            <option value="2">背背山</option>
+        </select>
+        {{from}}
+
+        <div>你要去哪里</div>
+        <select v-model="dest" multiple>
+            <option value="1">王家沟</option>
+            <option value="2">背背山</option>
+        </select>
+        {{dest}}
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                //from: 2
+                //name: 'whh'
+                //sex: 'male'
+                //sex: ['male']
+                //article: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+                dest: []
+            }
+        });
+    </script>
+</body>
+</html>

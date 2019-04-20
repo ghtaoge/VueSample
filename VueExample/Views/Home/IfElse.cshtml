@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>IfElse</title>
+
+</head>
+<body>
+    <div id="app">
+        <div v-if="role=='admin' || role=='super_admin'">
+            管理员你好
+        </div>
+        <div v-else-if="role=='hr'">
+            待查看简历列表
+            ...
+        </div>
+        <div v-else>
+            您没有权限访问此页面
+        </div>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                role: 'super_admin'
+            }
+        });
+    </script>
+</body>
+</html>

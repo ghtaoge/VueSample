@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ComponentCF</title>
+</head>
+<body>
+    <div id="app">
+        <balance></balance>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        Vue.component('balance', {//不传参数调用方法时可以不用带括号
+            template: '<div><show @@show-balance="show_balance"></show><div v-if="show">您的余额：¥99</div></div>',
+            data: function () {
+                return {
+                    show: false
+                }
+            },
+            methods: {
+                show_balance: function (data) {
+                    console.log('data:', data);
+                    this.show = true;
+                }
+            }
+        });
+        Vue.component('show', {
+            template: '<button @@click="on_click()">显示余额</button>',
+            methods: {
+                on_click() {
+                    //子父通信，类似于trigger，触发一个事件
+                    this.$emit('show-balance', { a: 1, b: 2 });
+                }
+            }
+        });
+        new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>

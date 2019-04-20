@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ComponentArg</title>
+</head>
+<body>
+    <div id="app">
+        <user username="taoge"></user>
+    </div>
+    <script src="~/Scripts/vue.js"></script>
+    <script>
+        Vue.component('user', {
+            template: '<a :href="\'/user/\' +username"> @@{{username}}</a>',
+            props: ['username']
+        });
+        new Vue({
+            el:'#app'
+        });
+    </script>
+</body>
+</html>
